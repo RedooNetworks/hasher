@@ -75,7 +75,7 @@ var hasher = {
       tab : tabs.hash,
       title: "RIPEMD-160",
       calculate: function (input) {
-        return hex_rmd160(input);
+        return CryptoJS.RIPEMD160(input);
       }
     },	
     h7 : {
