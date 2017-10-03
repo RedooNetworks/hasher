@@ -25,9 +25,9 @@
     <script src="lib/cryptojs/rollups/tripledes.js"></script>
     <script src="lib/cryptojs/rollups/rabbit.js"></script>
     <script src="lib/cryptojs/rollups/rc4.js"></script>
-    <script src="lib/hash/md4.js"></script>
-    <script src="lib/hash/ripemd.js"></script>
-    <script src="lib/hash/whirpool.js"></script>
+	<script src="lib/cryptojs/rollups/ripemd160.js"></script>
+    <script src="lib/hash/md4.js"></script>    
+    <script src="lib/hash/whirlpool.js"></script>
     <script src="lib/hash/crc.js"></script>
     <script src="lib/snov/numbers.js"></script>
     <script src="lib/snov/romanconverter.js"></script>
@@ -84,7 +84,7 @@
       <ul>
         <li>
           <b>Hash</b>:
-          MD5, SHA-1, SHA-2 (224, 256, 384, 512), RIPEMD-160, MD4, Whirpool
+          MD5, SHA-1, SHA-2 (224, 256, 384, 512), SHA-3, RIPEMD-160, MD4, Whirpool
         </li>
         <li>
           <b>HMAC</b>:
@@ -121,16 +121,16 @@
       </ul>
 
       <p>
-        <b>Usage:</b> enter text and click on the result. It will be <b>copied to clipboard</b>.
+        <b>Usage:</b> enter text. All variations are calculated in realtime.
       </p>
 
       <p>
-        Extension is using <a href="http://code.google.com/p/crypto-js/" target="_blank">crypto-js</a> and other open-source libraries.<br/>
-        See the source code on&nbsp;<a href="http://github.com/s12v/hasher" target="_blank">github</a>.
+        Extension uses <a href="http://code.google.com/p/crypto-js/" target="_blank">crypto-js</a> and other open-source libraries.<br/>
+        See the source code on&nbsp;<a href="https://github.com/bgunnink/hasher" target="_blank">Github</a>.
       </p>
 
       <p>
-        Developed by <a href="http://snov.me/" target="_blank">Sergey Novikov</a>
+        Developed by <a href="http://snov.me/" target="_blank">Sergey Novikov</a>, forked by <a href="https://github.com/bgunnink/" target="_blank">Ben Gunnink</a>.
       </p>
     </div>
     
