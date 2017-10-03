@@ -1,9 +1,6 @@
-# Hasher (Chrome extension)
-Chrome web store:  
-https://chrome.google.com/webstore/detail/kignjplbjlocolcfldfhbonmbblpfbjb
+# Hasher (Firefox WebExtension)
 
-Standalone version for other browsers:  
-http://s12v.github.com/hasher/
+A Firefox-friendly fork of https://github.com/s12v/hasher
 
 This extension is used to compute cryptographic hashes and do common conversions. It might be useful for programmers and system administrators. It's entirely implemented in JavaScript, all calculations are performed on client side, so it's safe.
 

@@ -10,15 +10,6 @@ var tabs = {
   number : 8
 };
 
-/*
- *  Copy to clipboard
- */
-function copyToClipboard(id) {
-  $("#"+id).select(); 
-  document.execCommand('copy');
-}
-
-
 var hasher = {
   ipcalc : new ipCalc(),
   tab : tabs.hash,
@@ -70,6 +61,14 @@ var hasher = {
       calculate: function (input) {
         return CryptoJS.SHA512(input);
       }
+    },	
+	h10 : {
+      id: tabs.hash+"sha3",
+      tab : tabs.hash,
+      title: "SHA-3",
+      calculate: function (input) {
+        return sha3_512(input);
+      }
     },
     h8 : {
       id: tabs.hash+"ripemd160",
@@ -78,7 +77,7 @@ var hasher = {
       calculate: function (input) {
         return hex_rmd160(input);
       }
-    },
+    },	
     h7 : {
       id: tabs.hash+"md4",
       tab : tabs.hash,
@@ -890,15 +889,6 @@ var hasher = {
             //$("#"+id).height("auto");
           }
           $("#"+this.id).toggleClass("on");
-        });
-        // copy to clibboard on click
-        $("#"+this.elements[i].id+"-value").click(function () {
-          $("#output .note").hide();
-          var id = this.id.toString().replace("-value", "");
-          if ($("#"+id).val().length > 0) {
-            $("#"+id+"-note").text("copied").show('fast');
-            copyToClipboard(id);
-          }
         });
       }
     }
