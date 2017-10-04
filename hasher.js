@@ -27,7 +27,9 @@ var hasher = {
       tab : tabs.hash,
       title: "SHA-1",
       calculate: function (input) {
-        return CryptoJS.SHA1(input);
+        var shaObj = new jsSHA("SHA-1", "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHash("HEX");
       }
     },
     h3 : {
@@ -35,7 +37,9 @@ var hasher = {
       tab : tabs.hash,
       title: "SHA-224",
       calculate: function (input) {
-        return CryptoJS.SHA224(input);
+        var shaObj = new jsSHA("SHA-224", "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHash("HEX");
       }
     },
     h4 : {
@@ -43,7 +47,9 @@ var hasher = {
       tab : tabs.hash,
       title: "SHA-256",
       calculate: function (input) {
-        return CryptoJS.SHA256(input);
+        var shaObj = new jsSHA("SHA-256", "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHash("HEX");
       }
     },
     h5 : {
@@ -51,7 +57,9 @@ var hasher = {
       tab : tabs.hash,
       title: "SHA-384",
       calculate: function (input) {
-        return CryptoJS.SHA384(input);
+        var shaObj = new jsSHA("SHA-384", "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHash("HEX");
       }
     },
     h6 : {
@@ -59,7 +67,9 @@ var hasher = {
       tab : tabs.hash,
       title: "SHA-512",
       calculate: function (input) {
-        return CryptoJS.SHA512(input);
+        var shaObj = new jsSHA("SHA-512", "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHash("HEX");
       }
     },	
 	h10 : {
@@ -67,7 +77,9 @@ var hasher = {
       tab : tabs.hash,
       title: "SHA-3",
       calculate: function (input) {
-        return sha3_512(input);
+        var shaObj = new jsSHA("SHA3-512", "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHash("HEX");
       }
     },
     h8 : {
@@ -76,14 +88,6 @@ var hasher = {
       title: "RIPEMD-160",
       calculate: function (input) {
         return CryptoJS.RIPEMD160(input);
-      }
-    },	
-    h7 : {
-      id: tabs.hash+"md4",
-      tab : tabs.hash,
-      title: "MD4",
-      calculate: function (input) {
-        return hex_md4(input);
       }
     },
     h9 : {
@@ -109,7 +113,10 @@ var hasher = {
       tab : tabs.hmac,
       title : "HMAC-SHA1",
       calculate : function (input, password) {
-        return CryptoJS.HmacSHA1(input, password);
+        var shaObj = new jsSHA("SHA-1", "TEXT");
+		shaObj.setHMACKey(password, "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHMAC("HEX");
       }
     },
     hm3: {
@@ -117,7 +124,10 @@ var hasher = {
       tab : tabs.hmac,
       title : "HMAC-SHA224",
       calculate : function (input, password) {
-        return CryptoJS.HmacSHA224(input, password);
+        var shaObj = new jsSHA("SHA-224", "TEXT");
+		shaObj.setHMACKey(password, "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHMAC("HEX");
       }
     },
     hm4: {
@@ -125,15 +135,21 @@ var hasher = {
       tab : tabs.hmac,
       title : "HMAC-SHA256",
       calculate : function (input, password) {
-        return CryptoJS.HmacSHA256(input, password);
+        var shaObj = new jsSHA("SHA-256", "TEXT");
+		shaObj.setHMACKey(password, "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHMAC("HEX");
       }
     },
     hm5: {
       id : tabs.hmac+"sha384",
       tab : tabs.hmac,
-      title : "HMAC-SHA256",
+      title : "HMAC-SHA384",
       calculate : function (input, password) {
-        return CryptoJS.HmacSHA384(input, password);
+        var shaObj = new jsSHA("SHA-384", "TEXT");
+		shaObj.setHMACKey(password, "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHMAC("HEX");
       }
     },
     hm6: {
@@ -141,7 +157,21 @@ var hasher = {
       tab : tabs.hmac,
       title : "HMAC-SHA512",
       calculate : function (input, password) {
-        return CryptoJS.HmacSHA512(input, password);
+        var shaObj = new jsSHA("SHA-512", "TEXT");
+		shaObj.setHMACKey(password, "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHMAC("HEX");
+      }
+    },
+	hm9: {
+      id : tabs.hmac+"sha3",
+      tab : tabs.hmac,
+      title : "HMAC-SHA3",
+      calculate : function (input, password) {
+        var shaObj = new jsSHA("SHA3-512", "TEXT");
+		shaObj.setHMACKey(password, "TEXT");
+		shaObj.update(input);		
+		return shaObj.getHMAC("HEX");
       }
     },
     hm7: {
@@ -149,15 +179,7 @@ var hasher = {
       tab : tabs.hmac,
       title : "HMAC-RIPEMD160",
       calculate : function (input, password) {
-        return hex_hmac_rmd160(password, input);
-      }
-    },
-    hm8: {
-      id : tabs.hmac+"md4",
-      tab : tabs.hmac,
-      title : "HMAC-MD4",
-      calculate : function (input, password) {
-        return hex_hmac_md4(password, input);
+        return CryptoJS.HmacRIPEMD160(password, input);
       }
     },
 
